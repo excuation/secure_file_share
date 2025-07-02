@@ -1,0 +1,220 @@
+{
+	"id": "c11b0a35-03f7-41f9-9597-e87d94aceba9",
+	"name": "Secure File Sharing API Collection",
+	"timestamp": "2025-07-02T11:56:08.308Z",
+	"collection_id": "38191314-64ee4c54-68e0-4e5f-abb9-78e97a62fdd1",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": "5",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-07-02T11:56:01.940Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "422bfc50-2d36-42d8-8097-5b78b9eb490b",
+			"name": "Client Signup",
+			"url": "http://localhost:8000/api/users/signup/",
+			"time": 976,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				976
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c6d6a48d-9731-4fa2-85fa-9a53aa193fe1",
+			"name": "Ops Signup",
+			"url": "http://localhost:8000/api/users/signup/",
+			"time": 619,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				619
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "198140d4-6537-4e86-8bc0-5d2f8469a70a",
+			"name": "Email Verify",
+			"url": "http://localhost:8000/api/users/verify-email/?token=eyJ1c2VyX2lkIjo0Mn0.aGUeUw.GmfooKGeLZ37dxGXiG0i9VFAe5A",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7007c9aa-e394-4da0-a576-05dfe6cddecb",
+			"name": "Client Login",
+			"url": "http://localhost:8000/api/users/client-login/",
+			"time": 614,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				614
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "80774953-b87f-4dd4-bcf0-f7667e169c8c",
+			"name": "Ops Login",
+			"url": "http://localhost:8000/api/users/ops-login/",
+			"time": 762,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				762
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e4f523b3-ea90-4d6f-b206-4f4895cbb29f",
+			"name": "Upload File(File taken from drive)",
+			"url": "http://localhost:8000/api/files/upload/",
+			"time": 1744,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1744
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ed09fc43-affa-4fb2-a6f7-d06b31bdbe82",
+			"name": "List Files",
+			"url": "http://localhost:8000/api/files/list/",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a3d9003f-f0a0-4e96-9093-32a4cf8cf950",
+			"name": "Generate Download Link",
+			"url": "http://localhost:8000/api/files/generate-download-link/8/",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2ca543d2-dded-42fd-ac49-3ec52b98b96e",
+			"name": "Download File",
+			"url": "http://localhost:8000/api/files/download/?token=eyJmaWxlX2lkIjo4LCJ1c2VyX2lkIjo0Mn0.IfLtv5XWyiUtahOKiQO5fAt6g5s",
+			"time": 159,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				159
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4926,
+	"collection": {
+		"requests": [
+			{
+				"id": "422bfc50-2d36-42d8-8097-5b78b9eb490b",
+				"method": "POST"
+			},
+			{
+				"id": "c6d6a48d-9731-4fa2-85fa-9a53aa193fe1",
+				"method": "POST"
+			},
+			{
+				"id": "198140d4-6537-4e86-8bc0-5d2f8469a70a",
+				"method": "GET"
+			},
+			{
+				"id": "7007c9aa-e394-4da0-a576-05dfe6cddecb",
+				"method": "POST"
+			},
+			{
+				"id": "80774953-b87f-4dd4-bcf0-f7667e169c8c",
+				"method": "POST"
+			},
+			{
+				"id": "e4f523b3-ea90-4d6f-b206-4f4895cbb29f",
+				"method": "POST"
+			},
+			{
+				"id": "ed09fc43-affa-4fb2-a6f7-d06b31bdbe82",
+				"method": "GET"
+			},
+			{
+				"id": "a3d9003f-f0a0-4e96-9093-32a4cf8cf950",
+				"method": "GET"
+			},
+			{
+				"id": "2ca543d2-dded-42fd-ac49-3ec52b98b96e",
+				"method": "GET"
+			}
+		]
+	}
+}
