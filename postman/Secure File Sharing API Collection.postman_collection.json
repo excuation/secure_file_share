@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "64ee4c54-68e0-4e5f-abb9-78e97a62fdd1",
+		"name": "Secure File Sharing API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38191314"
+	},
+	"item": [
+		{
+			"name": "Client Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"const fullUrl = response.verification_url;\r",
+							"const tokenMatch = fullUrl.match(/token=([^&]+)/);\r",
+							"if (tokenMatch) {\r",
+							"    pm.environment.set(\"email_verification_token\", tokenMatch[1]);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Anurag\",\r\n    \"email\": \"anuragsharma07575@gmail.com\",\r\n    \"password\": \"donbosco1234\",\r\n    \"role\": \"client\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/signup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ops Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"EZ\",\r\n    \"email\": \"EZ@gmail.com\",\r\n    \"password\": \"donbosco1234\",\r\n    \"role\": \"ops\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/signup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email Verify",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/users/verify-email/?token={{email_verification_token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"verify-email",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{email_verification_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const data = pm.response.json();\r",
+							"pm.environment.set(\"access_token_client\", data.access);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Anurag\",\r\n    \"password\": \"donbosco1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/client-login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"client-login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ops Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const data = pm.response.json();\r",
+							"pm.environment.set(\"access_token_ops\", data.access);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"EZ\",\r\n    \"password\": \"donbosco1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/ops-login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"ops-login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File(File taken from google  drive)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_ops}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"file_url\": \"https://docs.google.com/document/d/1_nNSpuaDsGO1TbldYpvuE4LWirrpyFKp/edit?usp=sharing&ouid=112693716709909533404&rtpof=true&sd=true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/files/upload/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Files",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData = pm.response.json();\r",
+							"\r",
+							"// Check if it's an array and has at least one item\r",
+							"if (Array.isArray(responseData) && responseData.length > 0) {\r",
+							"    let lastFile = responseData[responseData.length - 1];\r",
+							"    let lastFileId = lastFile.id;\r",
+							"    pm.environment.set(\"file_id\", lastFileId);\r",
+							"    console.log(\"Saved last file_id:\", lastFileId);\r",
+							"} else {\r",
+							"    console.warn(\"No files found in response!\");\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_client}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/files/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Download Link",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const data = pm.response.json();\r",
+							"const url = data.download_url;\r",
+							"const tokenMatch = url.match(/token=([^&]+)/);\r",
+							"if (tokenMatch) {\r",
+							"    pm.environment.set(\"download_token\", tokenMatch[1]);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_client}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/files/generate-download-link/{{file_id}}/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"generate-download-link",
+						"{{file_id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download File",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_client}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/files/download/?token={{download_token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"files",
+						"download",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{download_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
