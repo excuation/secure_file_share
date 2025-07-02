@@ -104,7 +104,7 @@ python manage.py runserver
 
 You can import the complete Postman Collection from this link:
 
-🔗 [Secure File Sharing API Collection (JSON)](https://github.com/CSEExplorer/secure_file_share/blob/master/postman/Secure%20File%20Sharing%20API%20Collection.postman_collection.json)
+🔗 [Secure File Sharing API Collection (JSON)](https://github.com/excuation/secure_file_share/blob/master/postman/Secure%20File%20Sharing%20API%20Collection.postman_collection.json)
 
 ---
 
