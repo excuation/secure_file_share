@@ -74,21 +74,21 @@ python manage.py runserver
 ---
 
 ### 🗂️ 4. Upload File (Ops only)  
-**POST** `/api/file/upload/`  
+**POST** `/api/files/upload/`  
 ➡ Auth: Ops JWT required  
 📸 Screenshot: ![Upload OK](https://raw.githubusercontent.com/CSEExplorer/secure_file_share/refs/heads/master/Postman%20Images/file-upload.png)
 
 ---
 
 ### 📥 5. List Uploaded Files (Client only)  
-**GET** `/api/file/list/`  
+**GET** `/api/files/list/`  
 ➡ Lists file names and metadata  
 📸 Screenshot: ![File List](https://github.com/CSEExplorer/secure_file_share/blob/master/Postman%20Images/list-file.png)
 
 ---
 
-### 🔓 6. Generate Download Token  
-**POST** `/api/file/download-token/`  
+### 🔓 6. Generate Download Link  
+**POST** `/api/files/generate-download-link/{{file_id}}/`  
 ➡ Auth: Client JWT required  
 ➡ Body: `{ "filename": "xyz.pdf" }`  
 📸 Screenshot: ![Download Token](https://raw.githubusercontent.com/CSEExplorer/secure_file_share/refs/heads/master/Postman%20Images/generate-download-link.png)
@@ -137,7 +137,7 @@ You can import the complete Postman Collection from this link:
 | `/api/client/login/`                      | POST       | Client   | ❌                | Login and receive JWT           |
 | `/api/file/upload/`                       | POST       | Ops      | ✅ (JWT)          | Upload file                     |
 | `/api/file/list/`                         | GET        | Client   | ✅ (JWT)          | List uploaded files             |
-| `/api/file/download-token/`               | POST       | Client   | ✅ (JWT)          | Generate one-time token         |
+| `/api/file/generate-load /`               | POST       | Client   | ✅ (JWT)          | Generate one-time token         |
 | `/api/file/download/?token=xyz`           | GET        | Client   | ❌                | Download file using token       |
 
 ## 💡 Notes
