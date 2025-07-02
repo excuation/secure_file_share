@@ -42,6 +42,7 @@ pip install -r requirements.txt
 
 ### 4. Run migrations
 for accessing the django admin panel  username is "admin" and password is "admin"
+
 python manage.py migrate
 
 ### 5. Start the server
@@ -54,7 +55,7 @@ python manage.py runserver
 ### ✅ 1. Client Signup  
 **POST** `/api/client/signup/`  
 ➡ Creates a new client user  
-📸 Screenshot: ![Signup OK](https://github.com/excuation/secure_file_share/blob/master/Postman%20Images/client-login.png)
+📸 Screenshot: ![Signup OK](https://raw.githubusercontent.com/excuation/secure_file_share/refs/heads/master/Postman%20Images/client-signup.png)
 
 ---
 
@@ -68,7 +69,7 @@ python manage.py runserver
 ### 🔐 3. Client Login  
 **POST** `/api/client/login/`  
 ➡ Returns JWT token for authentication  
-📸 Screenshot: ![Login OK](https://raw.githubusercontent.com/CSEExplorer/secure_file_share/refs/heads/master/Postman%20Images/client-login.png)
+📸 Screenshot: ![Login OK](https://github.com/excuation/secure_file_share/blob/master/Postman%20Images/client-login.png)
 
 ---
 
