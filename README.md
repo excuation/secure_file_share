@@ -53,14 +53,14 @@ python manage.py runserver
 ---
 
 ### ✅ 1. Client Signup  
-**POST** `/api/client/signup/`  
+**POST** `/api/users/signup/`  
 ➡ Creates a new client user  
 📸 Screenshot: ![Signup OK](https://raw.githubusercontent.com/excuation/secure_file_share/refs/heads/master/Postman%20Images/client-signup.png)
 
 ---
 
 ### 📧 2. Email Verification  
-**GET** `/api/client/verify/?token=<verification_token>`  
+**GET** `/api/users/verify-email/?token=<verification_token>`  
 ➡ Activates the client account  
 📸 Screenshot: ![Email Verified](https://github.com/CSEExplorer/secure_file_share/blob/master/Postman%20Images/verify-email.png)
 
